@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Club Finder</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+<body>
+
+    <!-- DEFAULT
+    <header>
+        <div id="appBar" class="app-bar">
+            <h2>Club Finder</h2>
+        </div>
+    </header>
+
+    <main>
+        <div id="search-container" class="search-container">
+            <input placeholder="Search football club" id="searchElement" type="search">
+            <button id="searchButtonElement" type="submit">Search</button>
+        </div>
+        <div id="clubList"></div>
+    </main>
+
+    <script src="src/script/data/clubs.js"></script>
+    <script src="src/script/data/data-source.js"></script>
+    <script src="src/script/view/main.js"></script>
+    <script src="app.js" type="module"></script> -->
+
+
+
+    <!-- 53. LATIHAN: MODULE
+    <header>
+        <div id="appBar" class="app-bar">
+            <h2>Club Finder</h2>
+        </div>
+    </header>
+
+    <main>
+        <div id="search-container" class="search-container">
+            <input placeholder="Search football club" id="searchElement" type="search">
+            <button id="searchButtonElement" type="submit">Search</button>
+        </div>
+        <div id="clubList"></div>
+    </main>
+
+    <script src="app.js" type="module"></script> -->
+    
+    
+    <!-- (II) 12. SOLUSI:
+    <header>                                                // Lalu di akhir berkas app-bar.js, jangan lupa untuk definisikan custom element yang kita buat agar dapat digunakan pada DOM.
+        <app-bar></app-bar>                                 // Dengan begitu kita dapat mengubah penerapan app-bar pada index.html dengan menggunakan tag <app-bar>.
+    </header>
+
+    <main>
+        <div id="search-container" class="search-container">
+            <input placeholder="Search football club" id="searchElement" type="search">
+            <button id="searchButtonElement" type="submit">Search</button>
+        </div>
+        <div id="clubList"></div>
+    </main>
+    
+    <script src="app.js" type="module"></script> -->
+    
+    
+    <!-- (II) 13. SOLUSI:  -->
+    <header> 
+        <app-bar></app-bar>
+    </header>
+
+    <main>
+        <search-bar></search-bar>
+    </main>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>

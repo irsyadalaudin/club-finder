@@ -1,0 +1,8 @@
+app-bar {
+	display: block;		/* PASALNYA, CUSTOM ELEMENT STANDARTNYA MERUPAKAN INLINE ELEMENT, SEHINGGA TIDAK AKAN MENHISI PANJANG LEBAR PARENT ELEMENT-NYA => Solusinya adalah dengan mengubah sifat inline pada custom element menjadi block dengan cara menambahkan properti display dengan nilai block pada selector app-bar. */
+    padding: 16px;
+    width: 100%;
+    background-color: cornflowerblue;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
