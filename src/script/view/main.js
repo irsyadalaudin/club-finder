@@ -339,7 +339,7 @@ import DataSource from '../data/data-source.js';
 const main = () => {
     const searchElement = document.querySelector('search-bar');
     // const buttonSearchElement = document.querySelector('#searchButtonElement');       // kita tidak membutuhkan deklarasi variabel buttonSearchElement,
-    const clubListElement = document.querySelector('#clubList');                         // karena sekarang kita dapat mengakses button pada CUSTOM COMPONENT yang telah kita buat sebelumnya, yakni melalui searchElement.
+    const clubListElement = document.querySelector('club-list');                         // karena sekarang kita dapat mengakses button pada CUSTOM COMPONENT yang telah kita buat sebelumnya, yakni melalui searchElement.
 
     const onButtonSearchClicked = () => {
         DataSource.searchClub(searchElement.value)

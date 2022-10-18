@@ -15,9 +15,9 @@ class SearchBar extends HTMLElement {                           // kita membuat 
                                                                 // Kemudian kita membuat fungsi render()
     render() {                                                  // Di dalam fungsi render() kita ambil elemen yang dibutuhkan untuk ditampilkan dari berkas index.html
         this.innerHTML = `
-        <div id="search-container" class="search-container">
-            <input placeholder="Search football club" id="searchElement" type="search">
-            <button id="searchButtonElement" type="submit">Search</button>
+        <div id='search-container' class='search-container'>
+            <input placeholder='Search football club' id='searchElement' type='search'>
+            <button id='searchButtonElement' type='submit'>Search</button>
         </div>
         `;
 
