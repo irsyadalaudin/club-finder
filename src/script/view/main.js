@@ -378,7 +378,7 @@ export default main; */
 
 
 /* (II) 14. SOLUSI: MEMBUAT club-item COMPONENT */
-import '../component/club-list';                                     // Karena kita menggunakan elemen <club-list> pada berkas main.js, maka kita perlu melakukan impor berkas club-list.js pada berkas main.js.
+import '../component/club-list.js';                                     // Karena kita menggunakan elemen <club-list> pada berkas main.js, maka kita perlu melakukan impor berkas club-list.js pada berkas main.js.
 import '../component/search-bar.js';                                
 import DataSource from '../data/data-source.js';
 
