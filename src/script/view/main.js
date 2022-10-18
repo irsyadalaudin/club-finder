@@ -332,8 +332,8 @@ export default main;
 */
 
 
-/* (II) 13. SOLUSI MEMBUAT search-bar COMPONENT */
-import '../component/search-bar.js'
+/* (II) 13. SOLUSI: MEMBUAT search-bar COMPONENT
+import '../component/search-bar.js';
 import DataSource from '../data/data-source.js';
 
 const main = () => {
@@ -370,6 +370,35 @@ const main = () => {
         clubListElement.innerHTML = '';
         clubListElement.innerHTML += `<h2 class="placeholder">${message}</h2>`
     }
+    
+    searchElement.clickEvent = onButtonSearchClicked;
+};
+
+export default main; */
+
+
+/* (II) 14. SOLUSI: MEMBUAT club-item COMPONENT */
+import '../component/club-list';                                     // Karena kita menggunakan elemen <club-list> pada berkas main.js, maka kita perlu melakukan impor berkas club-list.js pada berkas main.js.
+import '../component/search-bar.js';                                
+import DataSource from '../data/data-source.js';
+
+const main = () => {
+    const searchElement = document.querySelector('search-bar');      // kita tidak membutuhkan deklarasi variabel buttonSearchElement,
+    const clubListElement = document.querySelector('club-list');     // karena sekarang kita dapat mengakses button pada CUSTOM COMPONENT yang telah kita buat sebelumnya, yakni melalui searchElement.
+
+    const onButtonSearchClicked = () => {
+        DataSource.searchClub(searchElement.value)
+        .then(renderResult)
+        .catch(fallbackResult);
+    };
+
+    const renderResult = results => {                                // Lalu kita sesuaikan juga kode yang terdapat di dalam fungsi renderResult. Hapus seluruh logika yang ada di dalam fungsi tersebut.
+        clubListElement.clubs = results;                             // Kita cukup menggantinya dengan seperti ini: (DI KOLOM 394-397)
+    };
+    
+    const fallbackResult = message => {                              // Sesuaikan juga kode yang terdapat pada fungsi fallbackResult,
+        clubListElement.renderError(message);                        // karena kita sudah membuat fungsi renderError() pada ClubList,
+    }                                                                // maka penggunaanya cukup dilakukan seperti ini: (DI KOLOM 398-400)
     
     searchElement.clickEvent = onButtonSearchClicked;
 };
