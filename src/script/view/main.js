@@ -386,11 +386,14 @@ const main = () => {
     const searchElement = document.querySelector('search-bar');      // kita tidak membutuhkan deklarasi variabel buttonSearchElement,
     const clubListElement = document.querySelector('club-list');     // karena sekarang kita dapat mengakses button pada CUSTOM COMPONENT yang telah kita buat sebelumnya, yakni melalui searchElement.
 
-    const onButtonSearchClicked = () => {
-        DataSource.searchClub(searchElement.value)
-        .then(renderResult)
-        .catch(fallbackResult);
-    };
+    const onButtonSearchClicked = async () => {
+        try {
+          const result = await DataSource.searchClub(searchElement.value);
+          renderResult(result);
+        } catch (message) {
+          fallbackResult(message);
+        }
+      };
 
     const renderResult = results => {                                // Lalu kita sesuaikan juga kode yang terdapat di dalam fungsi renderResult. Hapus seluruh logika yang ada di dalam fungsi tersebut.
         clubListElement.clubs = results;                             // Kita cukup menggantinya dengan seperti ini: (DI KOLOM 394-397)
