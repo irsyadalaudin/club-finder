@@ -15,7 +15,6 @@ customElements.define('app-bar', AppBar);                  // Mendefinisikan cus
 
 
 /* (II) 19. SOLUSI: MENETAPKAN SHADOW DOM PADA PROYEK CLUB FINDER */
-/* */
 class AppBar extends HTMLElement {
     constructor() {                                        // buat constructor dari class tersebut dan di dalamnya kita tetapkan shadow root
     super();
