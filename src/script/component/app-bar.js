@@ -24,7 +24,6 @@ class AppBar extends HTMLElement {
                                                            // SEBENARNYA TERDAPAT 2 OPSI NILAI YANG DAPAT  DIGUNAKAN DALAM PROPRERTI MODE, YAITU "OPEN" DAN "CLOSED"
     connectedCallback() {
         this.render();
-    
     }
                                                            // Karena kita sudah menerapkan Shadow DOM pada AppBar,
     render() {                                             // jangan lupa pada fungsi render(),
