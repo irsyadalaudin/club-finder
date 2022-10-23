@@ -22,9 +22,14 @@ app-bar {
 */
 
 
-/* (II) 19. SOLUSI: MENETAPKAN SHADOW DOM PADA <app-bar> COMPONENT */
+/* (II) 19a. SOLUSI: MENETAPKAN SHADOW DOM PADA <app-bar> COMPONENT */
 /*  SELURUH KODE SUDAH DI CUT   (/*JADI UDAH GAK ADA KODE DI BERKAS appbar.css)
     DAN DI PASTE
     PADA NILAI this.shadowDOM.innerHTML DENGAN DIBUNGKUS OLEH ELEMENT <style> TEPAT SEBELUM ELEMENT <h2> PADA FUNGSI render()
     DI DALAM BERKAS app-bar.js
 */
+
+
+/* (II) 19b. SOLUSI: MENETAPKAN SHADOW DOM PADA <app-bar> COMPONENT */
+/* Dikarenakan kita sudah tidak membutuhkan lagi berkas src -> styles -> appbar.css, kita dapat menghapus berkas tersebut.  */
+/* Jangan lupa untuk menghapus import css tersebut pada src -> styles -> style.css. */
