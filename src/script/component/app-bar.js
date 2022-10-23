@@ -7,7 +7,6 @@ class AppBar extends HTMLElement {                    // kita buat class dengan 
 
     render() {                                        // Kemudian di dalam body block classnya, kita buat fungsi render.
         this.innerHTML = `<h2>Club Finder</h2>`;      // Di dalam elemen <header> di index.html terdapat elemen <div> yang menerapkan class “app-bar”. Nah kita copy element di dalam app-bar, dan paste untuk dijadikan nilai pada this.innerHTML di fungsi render().
-    
     }
 }
 
@@ -27,10 +26,9 @@ class AppBar extends HTMLElement {
         this.render();
     
     }
-
-    render() {
-        this.innerHTML = `<h2>Club Finder</h2>`;
-    
+                                                           // Karena kita sudah menerapkan Shadow DOM pada AppBar,
+    render() {                                             // jangan lupa pada fungsi render(),
+        this.shadowDOM.innerHTML = `<h2>Club Finder</h2>`; // kita ubah 'this.innerHTML' menjadi 'this.shadowDOM.innerHTML'
     }
 }
 
