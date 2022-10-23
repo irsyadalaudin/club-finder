@@ -46,7 +46,7 @@ customElements.define('app-bar', AppBar);
 */
 
 
-/* (II) 19b. SOLUSI: MENETAPKAN SHADOW DOM PADA <app-bar> COMPONENT */
+/* (II) 19b. SOLUSI: MENETAPKAN SHADOW DOM PADA app-bar COMPONENT */
 class AppBar extends HTMLElement {
     constructor() {                                        // buat constructor dari class tersebut dan di dalamnya kita tetapkan shadow root
     super();

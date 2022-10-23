@@ -1,3 +1,4 @@
+/* (II) 13. SOLUSI: MEMBUAT search-bar COMPONENT */
 class SearchBar extends HTMLElement {                           // kita membuat class SearchBar dengan mewarisi sifat HTMLElement.
     connectedCallback() {                                       // Kemudian kita implementasi method connectedCallback() dan membuat fungsi render() (DI KOLOM 16)
         this.render();                                          // Lalu, panggil fungsi render() di dalam connectedCallback().

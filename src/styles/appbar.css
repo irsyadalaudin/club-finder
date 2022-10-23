@@ -10,7 +10,7 @@ app-bar {
 */
 
 
-/* (II) 12. SOLUSI: MEMBUAT <app-bar> COMPONENT
+/* (II) 12. SOLUSI: MEMBUAT app-bar COMPONENT
 app-bar {
 	display: block;		                         /* PASALNYA, CUSTOM ELEMENT STANDARTNYA MERUPAKAN INLINE ELEMENT, SEHINGGA TIDAK AKAN MENHISI PANJANG LEBAR PARENT ELEMENT-NYA => Solusinya adalah dengan mengubah sifat inline pada custom element menjadi block dengan cara menambahkan properti display dengan nilai block pada selector app-bar.
     padding: 16px;
@@ -22,7 +22,7 @@ app-bar {
 */
 
 
-/* (II) 19a. SOLUSI: MENETAPKAN SHADOW DOM PADA <app-bar> COMPONENT */
+/* (II) 19a. SOLUSI: MENETAPKAN SHADOW DOM PADA app-bar COMPONENT */
 /*  SELURUH KODE SUDAH DI CUT   (/*JADI UDAH GAK ADA KODE DI BERKAS appbar.css)
     DAN DI PASTE
     PADA NILAI this.shadowDOM.innerHTML DENGAN DIBUNGKUS OLEH ELEMENT <style> TEPAT SEBELUM ELEMENT <h2> PADA FUNGSI render()
@@ -30,6 +30,6 @@ app-bar {
 */
 
 
-/* (II) 19b. SOLUSI: MENETAPKAN SHADOW DOM PADA <app-bar> COMPONENT */
+/* (II) 19b. SOLUSI: MENETAPKAN SHADOW DOM PADA app-bar COMPONENT */
 /* Dikarenakan kita sudah tidak membutuhkan lagi berkas src -> styles -> appbar.css, kita dapat menghapus berkas tersebut.  */
 /* Jangan lupa untuk menghapus import css tersebut pada src -> styles -> style.css. */
