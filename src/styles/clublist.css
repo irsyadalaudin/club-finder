@@ -98,22 +98,13 @@ club-item .fan-art-club {
 */
 
 
-/* (II) 21. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+/* (II) 21. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item
 club-list {
 	display: block;
 	margin-top: 32px;
 	width: 100%;
 	padding: 16px;
 }
-
-/* club-list > .placeholder {
-	font-weight: lighter;
-	color: rgba(0, 0, 0, 0.5);
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-} */
 
 club-item {
 	display: block;
@@ -144,5 +135,15 @@ club-item .fan-art-club {
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 10; /* number of lines to show */
+	-webkit-line-clamp: 10; /* number of lines to show
+}
+*/
+
+
+/* (II) 21. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+club-list {
+	display: block;
+	margin-top: 32px;
+	width: 100%;
+	padding: 16px;
 }
