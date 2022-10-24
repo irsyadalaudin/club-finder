@@ -1,4 +1,4 @@
-/* (II) 13. SOLUSI: MEMBUAT club-bar COMPONENT
+/* (II) 13. SOLUSI: MEMBUAT club-list COMPONENT
 import './club-item.js';                                                       // (INI TERAKHIR) Oh ya! Dikarenakan pada berkas ini kita menggunakan custom elemen <club-item> (kita akan membuat custom elemen ini nanti pada club-item.js), maka kita perlu melakukan impor custom element dari berkas club-item.js ke berkas club-list.js ini
 class ClubList extends HTMLElement {                                           // Langkah pertama kita buat custom element <club-list> terlebih dahulu. Pada berkas club-list.js, kita buat class ClubList dengan mewarisi sifat HTMLElement.
     set clubs(clubs) {                                                         // Kemudian kita buat 2 (dua) fungsi di dalamnya yaitu setter clubs, dan render (DI KOLOM 7)
