@@ -25,10 +25,53 @@ customElements.define('club-list', ClubList);                                  /
 */
 
 
-/* (II) 21. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+/* (II) 21a. SOLUSI: MENERAPKAN SHADOW DOM PADA club-list
 import './club-item.js';
 class ClubList extends HTMLElement {
-    constructor() {                                                           // MENERAPKAN Shadow DOM pada komponen club list (DI KOLOM 31-34)
+    constructor() {                                                            // MENERAPKAN Shadow DOM pada komponen club list (DI KOLOM 31-34)
+        super();
+        this.shadowDOM = this.attachShadow({mode: 'open'});
+    }
+
+    set clubs(clubs) {
+        this._clubs = clubs;
+        this.render();
+    }
+    
+    render() {
+        this.inner = '';
+        this._clubs.forEach(club => {
+            const clubItemElement = document.createElement('club-item')
+            clubItemElement.club = club;
+            this.shadowDOM.appendChild(clubItemElement);                       // dan ubah this.appendChild menjadi this.shadowDOM.appendChild.     (DI KOLOM 46)
+        });
+    }                                                   
+                                                                               // ubah seluruh kode this.innerHTML menjadi this.shadowDOM.innerHTML (DI KOLOM 51, 63)
+    renderError(message) {                                                     // Kemudian buka berkas src -> styles -> clublist.css dan pindahkan (cut) kode styling dengan selector club-list > .placeholder.    // Lalu tempel (paste) pada nilai this.shadowDOM.innerHTML dengan dibungkus oleh element <style> tepat sebelum element <h2> di dalam fungsi renderError()  (DI KOLOM 52-62)                         
+        this.shadowDOM.innerHTML = `
+            <style>
+                club-list > .placeholder {
+                    font-weight: lighter;
+                    color: rgba(0, 0, 0, 0.5);
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+            </style>
+            `;
+        this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+    }
+}
+
+customElements.define('club-list', ClubList);
+*/
+
+
+/* (II) 21b. SOLUSI: MENERAPKAN SHADOW DOM PADA club-list */
+import './club-item.js';
+class ClubList extends HTMLElement {
+    constructor() {
         super();
         this.shadowDOM = this.attachShadow({mode: 'open'});
     }
@@ -47,8 +90,19 @@ class ClubList extends HTMLElement {
         });
     }
 
-    renderError(message) {
-        this.shadowDOM.innerHTML = '';
+    renderError(message) {                                                     // Hapus child selector (>) (pada club-list > .placeholder)  beserta kombinatornya, dan sisakan .placeholder sebagai selector dari styling tersebut (DI KOLOM 96)                                    
+        this.shadowDOM.innerHTML = `
+            <style>
+                .placeholder {
+                    font-weight: lighter;
+                    color: rgba(0, 0, 0, 0.5);
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+            </style>
+            `;
         this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     }
 }
