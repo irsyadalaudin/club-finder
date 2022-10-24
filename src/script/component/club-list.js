@@ -1,3 +1,4 @@
+/* (II) 13. SOLUSI: MEMBUAT club-bar COMPONENT
 import './club-item.js';                                                       // (INI TERAKHIR) Oh ya! Dikarenakan pada berkas ini kita menggunakan custom elemen <club-item> (kita akan membuat custom elemen ini nanti pada club-item.js), maka kita perlu melakukan impor custom element dari berkas club-item.js ke berkas club-list.js ini
 class ClubList extends HTMLElement {                                           // Langkah pertama kita buat custom element <club-list> terlebih dahulu. Pada berkas club-list.js, kita buat class ClubList dengan mewarisi sifat HTMLElement.
     set clubs(clubs) {                                                         // Kemudian kita buat 2 (dua) fungsi di dalamnya yaitu setter clubs, dan render (DI KOLOM 7)
@@ -21,3 +22,35 @@ class ClubList extends HTMLElement {                                           /
 }
 
 customElements.define('club-list', ClubList);                                  // Pada akhir berkas club-list.js jangan lupa untuk definisikan custom element yang kita buat agar dapat digunakan pada DOM.
+*/
+
+
+/* (II) 21. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+import './club-item.js';
+class ClubList extends HTMLElement {
+    constructor() {                                                           // MENERAPKAN Shadow DOM pada komponen club list (DI KOLOM 31-34)
+        super();
+        this.shadowDOM = this.attachShadow({mode: 'open'});
+    }
+
+    set clubs(clubs) {
+        this._clubs = clubs;
+        this.render();
+    }
+    
+    render() {
+        this.inner = '';
+        this._clubs.forEach(club => {
+            const clubItemElement = document.createElement('club-item')
+            clubItemElement.club = club;
+            this.shadowDOM.appendChild(clubItemElement);
+        });
+    }
+
+    renderError(message) {
+        this.shadowDOM.innerHTML = '';
+        this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
+    }
+}
+
+customElements.define('club-list', ClubList);
