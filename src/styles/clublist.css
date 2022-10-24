@@ -140,10 +140,16 @@ club-item .fan-art-club {
 */
 
 
-/* (II) 21. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
-club-list {
-	display: block;
+/* (II) 22a. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+/* club-list {	             /* DISINI RULE STYLING INI MASIH ADA KARENA BELUM DIPINDAHKAN KE style.css
+	display: block;		     /* TAPI INI DI-COMMENT KARENA DI  (II) 22b. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item SUDAH DIPINDAHKAN
 	margin-top: 32px;
 	width: 100%;
 	padding: 16px;
-}
+} */
+
+
+/* (II) 22b. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+		/* RULE STYLING DARI clublist.css SUDAH DIPINDAHKAN KE style.css */
+		/* DIGUNAKKAN UNTUK MENAGTUR JARAK DAFTAR LIGA YANG DITAMPILKAN */
+		/* JADI SILAHKAN LIHAT style.css */

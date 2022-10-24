@@ -45,7 +45,7 @@ main {
 /* Jangan lupa untuk menghapus import css tersebut pada src -> styles -> style.css. */
 
 
-/* (II) 20. SOLUSI: MENERAPKAN SHADOW DOM PADA search-bar */
+/* (II) 20. SOLUSI: MENERAPKAN SHADOW DOM PADA search-bar
 @import 'clublist.css';
 
 * {
@@ -62,4 +62,30 @@ main {
   	width: 90%;
   	max-width: 800px;
   	margin: 32px auto;
+}
+*/
+
+
+/* (II) 22b. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+main {
+	width: 90%;
+	max-width: 800px;
+	margin: 32px auto;
+}
+
+club-list {					      /* RULE STYLING DARI clublist.css YANG DIPINDAHKAN KE style.css */
+	display: block;				  /* DIGUNAKKAN UNTUK MENAGTUR JARAK DAFTAR LIGA YANG DITAMPILKAN */
+	margin-top: 32px;
+	width: 100%;
+	padding: 16px;
 }
