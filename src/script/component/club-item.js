@@ -20,7 +20,7 @@ customElements.define('club-item', ClubItem);                                   
 */
 
 
-/* (II) 22a. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item
+/* (II) 22a. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
 class ClubItem extends HTMLElement {
     constructor() {                                                                 // Pada berkas ClubItem buat sebuah constructor dan terapkan Shadow DOM di dalamnya (DI KOLOM 25-28)
         super();
@@ -74,68 +74,6 @@ class ClubItem extends HTMLElement {
                 <p>${this._club.description}</p>
             </div>
         `;
-    }
-}
-
-customElements.define('club-item', ClubItem);  
-*/
-
-
-/* (II) 22b. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
-class ClubItem extends HTMLElement {
-    constructor() {                                                                 // Pada berkas ClubItem buat sebuah constructor dan terapkan Shadow DOM di dalamnya (DI KOLOM 25-28)
-        super();
-        this.shadowDOM = this.attachShadow({mode: 'open'});
-    }
-
-    set club(club) {
-        this._club = club;
-        this.render()
-    }
-                                                                                    // Seperti biasa jangan lupa untuk mengubah this.innerHTML menjadi this.shadowDOM.innerHTML ya. (DI KOLOM 36)                                                                                
-                                                                                    // Selanjutnya buka kembali berkas src -> styles -> clublist.css dan pindahkan styling berikut:    // Sesuaikan kembali selector pada styling tersebut menjadi seperti ini: (DI KOLOM 37-69)
-    render() {                                                                      
-        this.shadowDOM.innerHTML = `
-            <style>
-                club-item {
-                    display: block;
-                    margin-bottom: 18px;
-                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-                    border-radius: 10px;
-                    overflow: hidden;
-                }
-            
-                club-item .fan-art-club {
-                    width: 100%;
-                    max-height: 300px;
-                    object-fit: cover;
-                    object-position: center;
-                }
-            
-                .club-info {
-                    padding: 24px;
-                }
-            
-                .club-info > h2 {
-                    font-weight: lighter;
-                }
-            
-                .club-info > p {
-                    margin-top: 10px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 10; /* number of lines to show */
-                }
-            </style>
-
-            <img class="fan-art-club" src="${this._club.fanArt}" alt="Fan Art">
-            <div class="club-info">
-                <h2>${this._club.name}</h2>
-                <p>${this._club.description}</p>
-            </div>
-        `
     }
 }
 
