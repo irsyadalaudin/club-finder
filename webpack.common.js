@@ -22,10 +22,18 @@ module.exports = {
             }
         ]
     },
-    plugins: [
+    plugins: [                                  // PLUGIN DIBUAT DENGAN javascript class
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html'
         })
     ]
 }
+
+/*  NOTES
+        -Entry:   Titik awal atau berkas utama yang akan dianalisa oleh webpack dan membentuk dependency graph.
+        -Output:  Berkas javascript statis yang akan dihasilkan dari proses bundling berdasarkan entry point.
+        -Loaders: Transformasi tools pada webpack, yang akan memproses berkas selain JavaScript atau JSON yang diimpor menjadi format yang dapat digunakan ke tahap produksi.
+        -Plugin:  Tools untuk melakukan optimasi bundle, manajemen aset dsb.
+        -Mode:    Kondisi atau tingkatan sebagai acuan optimasi yang perlu diterapkan dalam prosesnya. Terdapat tiga mode yang dapat diterapkan, yaitu production, development, dan none.
+*/
