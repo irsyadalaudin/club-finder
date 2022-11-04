@@ -24,7 +24,7 @@ module.exports = {
     },
     plugins: [                                  // PLUGIN DIBUAT DENGAN javascript class
         new HtmlWebpackPlugin({                 // MENGAKSES PLUGIN MELALUI OBJEK 'WEBPACK'
-            template: './src/index.html',
+            template: './src/index.html',       // YANG DIPAKAI DISINI ADALAH PLUGIN (DI LUAR STANDAR YANG DISEDIAKAN) HARUS DIPASANG MELALUI npm TERLEBIH DAHULU. CONTOHNYA PLUGIN YANG BANYAK DIGUNAKAN UNUTK MEMBUAT BERKAS HTML PADA WEBPACK ADALAH html-webpack-plugin
             filename: 'index.html'
         })
     ]
