@@ -23,7 +23,7 @@ module.exports = {
         ]
     },
     plugins: [                                  // PLUGIN DIBUAT DENGAN javascript class
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({                 // MENGAKSES PLUGIN MELALUI OBJEK 'WEBPACK'
             template: './src/index.html',
             filename: 'index.html'
         })
