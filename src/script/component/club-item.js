@@ -82,7 +82,7 @@ customElements.define('club-item', ClubItem);
 
 
 
-/* (II) 22b. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item */
+/* (II) 22b. SOLUSI: MENERAPKAN SHADOW DOM PADA club-item
 class ClubItem extends HTMLElement {
     constructor() {                                                                 // Pada berkas ClubItem buat sebuah constructor dan terapkan Shadow DOM di dalamnya (DI KOLOM 25-28)
         super();
@@ -133,7 +133,7 @@ class ClubItem extends HTMLElement {
                     text-overflow: ellipsis;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 10; /* number of lines to show */
+                    -webkit-line-clamp: 10; // number of lines to show
                 }
             </style>
 
@@ -147,3 +147,84 @@ class ClubItem extends HTMLElement {
 }
 
 customElements.define('club-item', ClubItem);
+*/
+
+
+/* (VII) 24. SOLUSI: MENERAPKAN FETCH PADA CLUB FINDER */
+class ClubItem extends HTMLElement {
+    constructor() {                                                                 // Pada berkas ClubItem buat sebuah constructor dan terapkan Shadow DOM di dalamnya (DI KOLOM 25-28)
+        super();
+        this.shadowDOM = this.attachShadow({mode: 'open'});
+    }
+
+    set club(club) {
+        this._club = club;
+        this.render()
+    }
+                                                                                    // Seperti biasa jangan lupa untuk mengubah this.innerHTML menjadi this.shadowDOM.innerHTML ya. (DI KOLOM 36)                                                                                
+                                                                                    // Selanjutnya buka kembali berkas src -> styles -> clublist.css dan pindahkan styling berikut:    // Sesuaikan kembali selector pada styling tersebut menjadi seperti ini: (DI KOLOM 37-69)
+    render() {                                                                      // Sesuaikan kembali selector pada styling tersebut menjadi seperti ini: (DI KOLOM 101-105, 107, 115) 
+        this.shadowDOM.innerHTML = `
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: block;
+                    margin-bottom: 18px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+            
+                .fan-art-club {
+                    width: 100%;
+                    max-height: 300px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            
+                .club-info {
+                    padding: 24px;
+                }
+            
+                .club-info > h2 {
+                    font-weight: lighter;
+                }
+            
+                .club-info > p {
+                    margin-top: 10px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 10; // number of lines to show
+                }
+            </style>
+
+            <img class="fan-art-club" src="${this._club.strTeamBadge}" alt="Fan Art">
+            <div class="club-info">
+                <h2>${this._club.strTeam}</h2>
+                <p>${this._club.strDescriptionEN}</p>
+            </div>
+        `
+    }
+}
+
+customElements.define('club-item', ClubItem);
+
+/* NOTES */
+// Yah, data yang ditampilkan undefined. Mengapa bisa demikian? Ini disebabkan karena kita belum menyesuaikan key berdasarkan response yang didapat dari public API.
+// Kita harus menggunakan key strTeam untuk mendapatkan nama klub,
+// strTeamBadge untuk mendapatkan logo klub,
+// dan strDescriptionEN untuk mendapatkan deskripsi singkat dalam bahasa inggris.
+
+// Ketiga key tersebut kita tetapkan pada berkas src -> script -> component -> club-item.js. Lebih tepatnya pada fungsi render.
+// (DI KOLOM 208-211)
+
+// Kita ubah properti this._club.fanArt menjadi this._club.strTeamBadge,
+// this._club.name menjadi this._club.strTeam,
+// dan this._club.description menjadi this._club.strDescriptionEN.
