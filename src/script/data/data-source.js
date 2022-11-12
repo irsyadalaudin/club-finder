@@ -112,7 +112,7 @@ const filteredClubs = new Promise (executorFucntion);
 */
 
 
-/* 53. LATIHAN: MODULE */
+/* 53. LATIHAN: MODULE 
 import clubs from './clubs.js'
 
 class DataSource {
@@ -152,8 +152,8 @@ const filteredClubs = new Promise (executorFucntion);
 export default DataSource;
 
 
-/*  BISA MENGGUNAKAN YANG ATAS (DI KOLOM 248-257) MEMAKAI PENYESUAIAN PENGUBAHAN METHOD searchClub MENJADI STATIC & callback MENJADI PROMISE
-        ATAU PAKAI   YANG DI BAWAH (DI KOLOM 262-268) MEMAKAI async/await
+// BISA MENGGUNAKAN YANG ATAS (DI KOLOM 248-257) MEMAKAI PENYESUAIAN PENGUBAHAN METHOD searchClub MENJADI STATIC & callback MENJADI PROMISE
+// ATAU PAKAI   YANG DI BAWAH (DI KOLOM 262-268) MEMAKAI async/await
 
     const onButtonSearchClicked = async () => {
         try {
@@ -163,3 +163,25 @@ export default DataSource;
         }
     };
 */
+
+
+/* (VII) 24. SOLUSI: MENERAPKAN FETCH PADA CLUB FINDER */
+class DataSource {
+	static searchClub(keyword) {
+		return fetch(`https://sports-api.dicoding.dev/teams/search?t=${keyword}`)
+
+		.then(response => {
+			return response.json();
+		})
+
+		.then(responseJson => {
+			if (responseJson.teams) {
+				return Promise.resolve(responseJson.teams);
+			} else {
+				return Promise.reject(`${keyword} is not found`);
+			}
+		});
+	}
+}
+
+export default DataSource;
